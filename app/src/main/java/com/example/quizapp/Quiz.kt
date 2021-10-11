@@ -6,8 +6,10 @@ class Quiz (var questions: List<Question>) {
     var cValue = 0
     var dValue = 0
 
+    var x = -1
+
     fun checkAnswer(answer: String) {
-        if (answer == "A") {
+        if (answer == buttonA.text = questions[x].A) {
             aValue++;
         }
         else if (answer == "B") {

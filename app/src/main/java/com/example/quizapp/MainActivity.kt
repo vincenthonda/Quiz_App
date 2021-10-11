@@ -18,20 +18,98 @@ class MainActivity : AppCompatActivity() {
     lateinit var buttonNext: Button
     lateinit var questionText: TextView
 
+    val inputStream = resources.openRawResource(R.raw.questions)
+    val jsonText = inputStream.bufferedReader().use { it.readText() }
+    val gson = Gson()
+    val type = object: TypeToken<List<Question>>(){}.type
+    val questions = gson.fromJson<List<Question>>(jsonText, type)
+
+    var aValue = 0
+    var bValue = 0
+    var cValue = 0
+    var dValue = 0
+    var x = 0
+
+    companion object Values {
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         wireWidgets()
 
-        val inputStream = resources.openRawResource(R.raw.questions)
-        val jsonText = inputStream.bufferedReader().use { it.readText() }
+        questionText.text = questions[x].question
+        buttonA.text = questions[x].A
+        buttonB.text = questions[x].B
+        buttonC.text = questions[x].C
+        buttonD.text = questions[x].D
 
-        Log.d(TAG, "onCreate: $jsonText")
+        buttonA.setOnClickListener {
+            checkA()
+            buttonNext.setOnClickListener {
+                nextQuestion()
+            }
+        }
+        buttonB.setOnClickListener { checkB() }
+        buttonC.setOnClickListener { checkC() }
+        buttonD.setOnClickListener { checkC() }
 
-        val gson = Gson()
-        val type = object: TypeToken<List<Question>>(){}.type
-        val questions = gson.fromJson<List<Question>>(jsonText, type)
+    }
+
+    fun nextQuestion() {
+        if (x < 10) {
+            buttonA.text = questions[x].A
+            buttonB.text = questions[x].B
+            buttonC.text = questions[x].C
+            buttonD.text = questions[x].D
+
+            buttonA.setOnClickListener {
+                checkA()
+                buttonNext.setOnClickListener {
+                    nextQuestion()
+                }
+            }
+            buttonB.setOnClickListener {
+                checkB()
+                buttonNext.setOnClickListener {
+                    nextQuestion()
+                }
+            }
+            buttonC.setOnClickListener {
+                checkC()
+                buttonNext.setOnClickListener {
+                    nextQuestion()
+                }
+            }
+            buttonD.setOnClickListener {
+                checkC()
+                buttonNext.setOnClickListener {
+                    nextQuestion()
+                }
+            }
+        }
+        else {
+
+        }
+    }
+
+    fun checkA() {
+        aValue++
+        x++
+    }
+    fun checkB() {
+        bValue++
+        x++
+    }
+    fun checkC() {
+        cValue++
+        x++
+    }
+    fun checkD() {
+        dValue++
+        x++
     }
 
     fun wireWidgets () {
