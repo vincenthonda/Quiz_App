@@ -3,10 +3,13 @@ package com.example.quizapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import java.io.InputStream
+import kotlin.math.max
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,11 +21,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var buttonNext: Button
     lateinit var questionText: TextView
 
-    val inputStream = resources.openRawResource(R.raw.questions)
-    val jsonText = inputStream.bufferedReader().use { it.readText() }
-    val gson = Gson()
-    val type = object: TypeToken<List<Question>>(){}.type
-    val questions = gson.fromJson<List<Question>>(jsonText, type)
+    lateinit var inputStream : InputStream
+    lateinit val jsonText : String
+    lateinit val gson :
+    lateinit val type
+    lateinit val questions
 
     var aValue = 0
     var bValue = 0
@@ -39,6 +42,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         wireWidgets()
+
+        var inputStream = resources.openRawResource(R.raw.questions)
+        var jsonText = inputStream.bufferedReader().use { it.readText() }
+        var gson = Gson()
+        var type = object: TypeToken<List<Question>>(){}.type
+        var questions = gson.fromJson<List<Question>>(jsonText, type)
 
         questionText.text = questions[x].question
         buttonA.text = questions[x].A
@@ -89,9 +98,31 @@ class MainActivity : AppCompatActivity() {
                     nextQuestion()
                 }
             }
+            x++
         }
         else {
+            showResults()
+        }
+    }
 
+    fun showResults() {
+        buttonA.visibility = View.GONE
+        buttonB.visibility = View.GONE
+        buttonC.visibility = View.GONE
+        buttonC.visibility = View.GONE
+
+
+        if (max(max(aValue, bValue), max(cValue, dValue)) == aValue) {
+            questionText.setText("You are " + aValue / 11 + "% 16 year old Bitcoin Millionaire")
+        }
+        if (max(max(aValue, bValue), max(cValue, dValue)) == bValue) {
+            questionText.setText("You are " + bValue / 11 + "% 12 year old \"hypebeast\"")
+        }
+        if (max(max(aValue, bValue), max(cValue, dValue)) == cValue) {
+            questionText.setText("You are " + cValue / 11 + "% gigachad")
+        }
+        if (max(max(aValue, bValue), max(cValue, dValue)) == dValue) {
+            questionText.setText("You are " + dValue / 11 + "% Karen")
         }
     }
 
