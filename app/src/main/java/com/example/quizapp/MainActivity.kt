@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.InputStream
@@ -20,12 +22,12 @@ class MainActivity : AppCompatActivity() {
     lateinit var buttonD: Button
     lateinit var buttonNext: Button
     lateinit var questionText: TextView
+    lateinit var karen: ImageView
+    lateinit var hypebeast: ImageView
+    lateinit var bitcoin: ImageView
+    lateinit var chad: ImageView
 
-    lateinit var inputStream : InputStream
-    lateinit val jsonText : String
-    lateinit val gson :
-    lateinit val type
-    lateinit val questions
+    lateinit var questions : List<Question>
 
     var aValue = 0
     var bValue = 0
@@ -44,10 +46,10 @@ class MainActivity : AppCompatActivity() {
         wireWidgets()
 
         var inputStream = resources.openRawResource(R.raw.questions)
-        var jsonText = inputStream.bufferedReader().use { it.readText() }
-        var gson = Gson()
+        val jsonText = inputStream.bufferedReader().use { it.readText() }
+        val gson = Gson()
         var type = object: TypeToken<List<Question>>(){}.type
-        var questions = gson.fromJson<List<Question>>(jsonText, type)
+        questions = gson.fromJson<List<Question>>(jsonText, type)
 
         questionText.text = questions[x].question
         buttonA.text = questions[x].A
@@ -61,14 +63,37 @@ class MainActivity : AppCompatActivity() {
                 nextQuestion()
             }
         }
-        buttonB.setOnClickListener { checkB() }
-        buttonC.setOnClickListener { checkC() }
-        buttonD.setOnClickListener { checkC() }
+        buttonB.setOnClickListener {
+            checkB()
+            buttonNext.setOnClickListener {
+                nextQuestion()
+            }
+        }
+        buttonC.setOnClickListener {
+             checkC()
+            buttonNext.setOnClickListener {
+                nextQuestion()
+            }
+        }
+        buttonD.setOnClickListener {
+            checkD()
+            buttonNext.setOnClickListener {
+                nextQuestion()
+            }
+        }
 
     }
 
     fun nextQuestion() {
+
+        buttonA.isClickable = true
+        buttonB.isClickable = true
+        buttonC.isClickable = true
+        buttonD.isClickable = true
+        buttonNext.isVisible = false
+
         if (x < 10) {
+            questionText.text = questions[x].question
             buttonA.text = questions[x].A
             buttonB.text = questions[x].B
             buttonC.text = questions[x].C
@@ -76,24 +101,28 @@ class MainActivity : AppCompatActivity() {
 
             buttonA.setOnClickListener {
                 checkA()
+                buttonNext.isVisible = true
                 buttonNext.setOnClickListener {
                     nextQuestion()
                 }
             }
             buttonB.setOnClickListener {
                 checkB()
+                buttonNext.isVisible = true
                 buttonNext.setOnClickListener {
                     nextQuestion()
                 }
             }
             buttonC.setOnClickListener {
                 checkC()
+                buttonNext.isVisible = true
                 buttonNext.setOnClickListener {
                     nextQuestion()
                 }
             }
             buttonD.setOnClickListener {
                 checkC()
+                buttonNext.isVisible = true
                 buttonNext.setOnClickListener {
                     nextQuestion()
                 }
@@ -109,38 +138,59 @@ class MainActivity : AppCompatActivity() {
         buttonA.visibility = View.GONE
         buttonB.visibility = View.GONE
         buttonC.visibility = View.GONE
-        buttonC.visibility = View.GONE
+        buttonD.visibility = View.GONE
+        buttonNext.visibility = View.GONE
 
 
         if (max(max(aValue, bValue), max(cValue, dValue)) == aValue) {
-            questionText.setText("You are " + aValue / 11 + "% 16 year old Bitcoin Millionaire")
+            questionText.setText("You are 16 year old Bitcoin Millionaire")
+                bitcoin.isVisible = true
         }
         if (max(max(aValue, bValue), max(cValue, dValue)) == bValue) {
-            questionText.setText("You are " + bValue / 11 + "% 12 year old \"hypebeast\"")
+            questionText.setText("You are a 12 year old \"hypebeast\"")
+            hypebeast.isVisible = true
         }
         if (max(max(aValue, bValue), max(cValue, dValue)) == cValue) {
-            questionText.setText("You are " + cValue / 11 + "% gigachad")
+            questionText.setText("You are gigachad")
+            chad.isVisible = true
         }
         if (max(max(aValue, bValue), max(cValue, dValue)) == dValue) {
-            questionText.setText("You are " + dValue / 11 + "% Karen")
+            questionText.setText("You are Karen")
+            karen.isVisible = true
         }
     }
 
     fun checkA() {
         aValue++
         x++
+        buttonA.isClickable = false
+        buttonB.isClickable = false
+        buttonC.isClickable = false
+        buttonD.isClickable = false
     }
     fun checkB() {
         bValue++
         x++
+        buttonA.isClickable = false
+        buttonB.isClickable = false
+        buttonC.isClickable = false
+        buttonD.isClickable = false
     }
     fun checkC() {
         cValue++
         x++
+        buttonA.isClickable = false
+        buttonB.isClickable = false
+        buttonC.isClickable = false
+        buttonD.isClickable = false
     }
     fun checkD() {
         dValue++
         x++
+        buttonA.isClickable = false
+        buttonB.isClickable = false
+        buttonC.isClickable = false
+        buttonD.isClickable = false
     }
 
     fun wireWidgets () {
@@ -150,7 +200,14 @@ class MainActivity : AppCompatActivity() {
         buttonD = findViewById(R.id.button_main_d)
         buttonNext = findViewById(R.id.button_main_e)
         questionText = findViewById(R.id.question_text)
-
+        karen = findViewById(R.id.image_karen)
+        chad = findViewById(R.id.image_chad)
+        bitcoin = findViewById(R.id.image_bitcoin)
+        hypebeast = findViewById(R.id.image_hypebeast)
+        karen.isVisible = false
+        chad.isVisible = false
+        bitcoin.isVisible = false
+        hypebeast.isVisible = false
     }
 
 }

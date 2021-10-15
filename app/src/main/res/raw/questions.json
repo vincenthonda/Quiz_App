@@ -1,69 +1,69 @@
 [
   {
-    "Question": "What is your dream car?",
+    "question": "What is your dream car?",
     "A": "lamborghini",
     "B": "pt cruiser",
     "C": "tesla",
     "D": "corvette"
   },
   {
-    "Question": "what is your dream house?",
+    "question": "what is your dream house?",
     "A": "Faze house",
     "B": "house with a ranch",
     "C": "3 million dollar house in the hills",
     "D": "beach house"
   },
   {
-    "Question": "what phone do you have",
+    "question": "what phone do you have",
     "A": "newest generation phone",
     "B": "most expensive phone on the market",
     "C": "pre-2010 blackberry",
     "D": "1+ year old iphone/samsung"
   },
   {
-    "Question": "favorite shoe brand",
+    "question": "favorite shoe brand",
     "A": "balenciaga",
     "B": "yeezy",
     "C": "jordans",
     "D": "sketchers"
   },
   {
-    "Question": "favorite TV show?",
+    "question": "favorite TV show?",
     "A": "F R I E N D S",
     "B": "The Office",
     "C": "Breaking Bad",
     "D": "NCIS"
   },
   {
-    "Question": "favorite animal",
+    "question": "favorite animal",
     "A": "lion",
     "B": "dragons",
     "C": "orca",
     "D": "American eagle"
   },
   {
-    "Question": "How much social media do you use?",
+    "question": "How much social media do you use?",
     "A": "20-24 hrs",
     "B": "16-18 hrs",
     "C": "0-2 hrs",
     "D": "2-16 hrs (FACEBOOK ONLY!!!)"
   },
   {
-    "Question": "favorite sport",
+    "question": "favorite sport",
     "A": "chess",
     "B": "soccer",
     "C": "bowling",
     "D": "sharpshooting"
   },
   {
-    "Question": "what is your favorite genre of music",
+    "question": "what is your favorite genre of music",
     "A": "hyperpop",
     "B": "playboy carti (Only VAMP ANtHEM)",
     "C": "classical music",
     "D": "Christian Rock (no profanity)"
   },
   {
-    "Question": "favorite food",
+    "question": "favorite food",
     "A": "filet mignon steak (well done)",
     "B": "snak-pack cheetos",
     "C": "jersey mike's",
