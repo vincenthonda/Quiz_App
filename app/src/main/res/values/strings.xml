@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Quiz App</string>
-    <string name="d">D</string>
+    <string name="d" translatable="false">D</string>
     <string name="next">Next</string>
-    <string name="c">C</string>
-    <string name="b">B</string>
-    <string name="a">A</string>
+    <string name="c" translatable="false">C</string>
+    <string name="b" translatable="false">B</string>
+    <string name="a" translatable="false">A</string>
 </resources>

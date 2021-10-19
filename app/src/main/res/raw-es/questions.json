@@ -1,0 +1,72 @@
+[
+  {
+    "question": "¿Cuál es tu carro soñado?",
+    "A": "lamborghini",
+    "B": "pt cruiser",
+    "C": "tesla",
+    "D": "corvette"
+  },
+  {
+    "question": "¿Cuál es la casa de tus sueños?",
+    "A": "Faze casa",
+    "B": "casa con un rancho",
+    "C": "Casa de 3 millones de dolares en las colinas",
+    "D": "casa cerca de la playa"
+  },
+  {
+    "question": "¿Qué teléfono tiene?",
+    "A": "iphone de última generación",
+    "B": "el teléfono más caro del mercado",
+    "C": "blackberry anterior a 2010",
+    "D": "IPhone / Samsung de más de 1 año"
+  },
+  {
+    "question": "marca de calzado favorita",
+    "A": "balenciaga",
+    "B": "yeezy",
+    "C": "jordans",
+    "D": "sketchers"
+  },
+  {
+    "question": "¿programa de televisión favorito?",
+    "A": "F R I E N D S",
+    "B": "The Office",
+    "C": "Breaking Bad",
+    "D": "NCIS"
+  },
+  {
+    "question": "animal favorita",
+    "A": "lion",
+    "B": "dragons",
+    "C": "orca",
+    "D": "American eagle"
+  },
+  {
+    "question": "¿Cuántas redes sociales usas?",
+    "A": "20-24 horas",
+    "B": "16-18 horas",
+    "C": "0-2 horas",
+    "D": "2-16 horas (SOLO FACEBOOK!!!)"
+  },
+  {
+    "question": "deporte favorito",
+    "A": "ajedrez",
+    "B": "fútbol",
+    "C": "bolos",
+    "D": "puntería certera"
+  },
+  {
+    "question": "Cuál es tu género musical favorito",
+    "A": "hyperpop",
+    "B": "playboy carti (Only VAMP ANtHEM)",
+    "C": "classical music",
+    "D": "Christian Rock (no blasfemia)"
+  },
+  {
+    "question": "comida favorita",
+    "A": "filete de filete mignon (bien hecho)",
+    "B": "snak-pack cheetos",
+    "C": "jersey mike's",
+    "D": "Filet-O-Fish con Coca-Cola Light"
+  }
+]
